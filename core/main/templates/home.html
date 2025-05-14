@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Base styles for Light Mode */
+    body.light-mode {
+      margin: 0;
+      padding: 0;
+      font-family: 'Ubuntu', sans-serif;
+      height: 100vh;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 40px;
+      color: #333;
+    }
+
+    /* Dark Mode styles */
+    body.dark-mode {
+      margin: 0;
+      padding: 0;
+      font-family: 'Ubuntu', sans-serif;
+      height: 100vh;
+      background: #2c2c2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 40px;
+      color: white;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 20px 0;
+      text-align: center;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Toggle button for dark mode */
+    .mode-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px;
+      border: none;
+      background: #f472b6;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .mode-toggle:hover {
+      background: #f43f5e;
+    }
+
+    .buttons {
+      margin-bottom: 25px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .buttons button {
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(135deg, #36d1dc, #5b86e5);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background: linear-gradient(135deg, #ff6ec4, #7873f5);
+      transform: scale(1.05);
+    }
+
+    /* Brand button styles */
+    .brands {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+      max-width: 1000px;
+    }
+
+    .brand-btn {
+      padding: 18px 35px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(135deg, #f43f5e, #8b5cf6);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .brand-btn:hover {
+      background: linear-gradient(135deg, #22c55e, #0ea5e9);
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    /* Chat toggle button */
+    .chat-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #4ade80, #22d3ee);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      transition: background 0.3s;
+    }
+
+    .chat-toggle:hover {
+      background: linear-gradient(135deg, #facc15, #f472b6);
+    }
+
+    /* Support form box */
+    .support-box {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: rgba(30, 30, 30, 0.95);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      width: 300px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 1000;
+      animation: fadeInUp 0.4s ease-out;
+    }
+
+    .support-box h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .support-box form input,
+    .support-box form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .support-box form textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .support-box form button {
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s ease;
+    }
+
+    .support-box form button:hover {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <!-- Mode toggle button -->
+  <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+
+  {% if user.is_authenticated %}
+    <h1>Hello, {{ user.username }} 👋</h1>
+    <div class="buttons">
+      <a href="{% url 'logout' %}"><button>Logout</button></a>
+    </div>
+  {% else %}
+    <div class="buttons">
+      <a href="{% url 'login' %}"><button>Login</button></a>
+      <a href="{% url 'register' %}"><button>Register</button></a>
+    </div>
+  {% endif %}
+
+  <h1>Our Brands</h1>
+  <div class="brands">
+    {% for i in brend_list %}
+      <a href="{% url 'car' i.id %}">
+        <button class="brand-btn">{{ i.name }}</button>
+      </a>
+    {% endfor %}
+  </div>
+
+  <!-- Chat toggle button -->
+  <button class="chat-toggle" onclick="toggleSupportBox()">💬</button>
+
+  <!-- Support chat form -->
+  <div class="support-box" id="supportBox">
+    <h2>Contact Us</h2>
+    <form method="post">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="text" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const currentMode = body.classList.contains('light-mode') ? 'light-mode' : 'dark-mode';
+      body.classList.remove(currentMode);
+      body.classList.add(currentMode === 'light-mode' ? 'dark-mode' : 'light-mode');
+    }
+
+    function toggleSupportBox() {
+      const box = document.getElementById('supportBox');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
+ 
